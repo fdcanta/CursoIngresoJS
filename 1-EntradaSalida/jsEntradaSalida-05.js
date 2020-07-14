@@ -8,6 +8,6 @@ function mostrar()
 	txtIdNombre.value = nombre;
 	edad = prompt("ingrese su edad");
 	txtIdEdad.value = edad;
-	alert("Su nombre es "+txtIdNombre.value+", y usted tiene "+txtIdEdad.value+" años.");
+	alert("Su nombre es "+txtIdNombre.value+", y usted tiene "+txtIdEdad.value+"años.");
 }
 
