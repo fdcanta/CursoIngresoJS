@@ -29,7 +29,7 @@ function Circulo ()
     var diametro, alambre;
 
     //se calcula el perimetro
-    diametro = txtIdRadio.value*6.28;
+    diametro = txtIdRadio.value*Math.PI*2;
     
 
     //se pasa a numero
