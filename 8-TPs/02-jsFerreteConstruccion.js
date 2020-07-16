@@ -28,8 +28,9 @@ function Circulo ()
     //Se declaran las variables
     var diametro, alambre;
 
-    //se calcula el perimetro
+    //se calcula el perimetro y se redonde
     diametro = txtIdRadio.value*Math.PI*2;
+    diametro = Math.ceil(diametro)
     
 
     //se pasa a numero
