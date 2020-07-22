@@ -11,7 +11,7 @@ function mostrar()
 	
 
 	//los revisa y avisa la franja de edad
-	if (edad<18 && estado=="Soltero") {alert("Es muy pequeño para NO ser soltero.")}
+	if (edad<18 && estado!="Soltero") {alert("Es muy pequeño para NO ser soltero.")}
 	
 	
 }//FIN DE LA FUNCIÓN
