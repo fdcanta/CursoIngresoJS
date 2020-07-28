@@ -13,7 +13,7 @@ function mostrar()
 	var min = 1;
 	conf = 0;
 	
-	//Genero el número aleatorio entre 1 y 10 
+	//Genero el número aleatorio entre 1 y 51
 	num1 = min + Math.floor((max - min) * Math.random());
 	num2 = min + Math.floor((max - min) * Math.random());
 

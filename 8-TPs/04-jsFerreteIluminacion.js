@@ -10,5 +10,59 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  */
 function CalcularPrecio () 
 {
- 	
+     //se declaran variables y se asignan
+     var lamparitas;
+     var marcaDeLampara;
+     var descuento;
+     var total;
+     var impuestos;
+     descuento = 0;
+     lamparitas = txtIdCantidad.value;
+     marcaDeLampara = Marca.value;
+
+     //revisa la cantidad de lamparas y el descuento correspondiente de la marca
+     if (lamparitas>5){
+        descuento = 0.5;
+     } else if (lamparitas==5 && marcaDeLampara == "ArgentinaLuz"){
+        descuento = 0.4;
+     } else if (lamparitas==5){
+        descuento = 0.3;
+     }
+
+     
+     if (lamparitas==4){
+         if (marcaDeLampara=="ArgentinaLuz" || marcaDeLampara=="FelipeLamparas") {
+             descuento = 0.25;
+         } else {
+             descuento = 0.2;
+         }
+
+     }
+     
+     if (lamparitas ==3 && marcaDeLampara == "ArgentinaLuz"){
+         descuento = 0.15;
+     } else if (lamparitas ==3 && marcaDeLampara == "FelipeLamparas"){
+        descuento = 0.1;
+     } else if (lamparitas ==3 ){
+        descuento = 0.05;
+     }
+     
+     
+        
+     
+     
+     //calcula el total y aplica descuentos
+     total = (lamparitas * 35);
+     total = total - (total*descuento);
+
+     //revisa si es mayor de 120 y aplica impuestos
+     if (total>120){
+        impuestos = total*0.1;
+        total = total+impuestos;
+         alert("IIBB Usted pago "+impuestos+"$");
+     }
+
+     
+     txtIdprecioDescuento.value=total+"$";
+
 }
