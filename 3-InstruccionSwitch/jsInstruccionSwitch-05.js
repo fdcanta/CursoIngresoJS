@@ -1,9 +1,10 @@
 function mostrar()
 {
-	//tomo la hora
+	//tomo la hora y la convierto en int
 	var horaDelDia =txtIdHora.value;
 	horaDelDia = parseInt(horaDelDia, 10);
 
+	//reviso el caso de que sea de 7 a 11
 	switch (horaDelDia){
 		case 7:
 		case 8:
@@ -13,10 +14,4 @@ function mostrar()
 			console.log("Es de mañana.");
 			break;
 	}
-	
-	
-	
-
-
-
 }//FIN DE LA FUNCIÓN

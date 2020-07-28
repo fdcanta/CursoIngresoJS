@@ -21,7 +21,4 @@ function mostrar()
 		default:
 			console.log("el mes tiene 31 dias")
 	}
-
-
-
 }//FIN DE LA FUNCIÓN
