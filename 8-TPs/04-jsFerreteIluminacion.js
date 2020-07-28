@@ -19,37 +19,37 @@ function CalcularPrecio ()
      descuento = 0;
      lamparitas = txtIdCantidad.value;
      marcaDeLampara = Marca.value;
+     lamparitas = parseInt(lamparitas, 10);
 
-     //revisa la cantidad de lamparas y el descuento correspondiente de la marca
+     //Se aplica descuento sobre compra mayor a 5 unidades
      if (lamparitas>5){
         descuento = 0.5;
-     } else if (lamparitas==5 && marcaDeLampara == "ArgentinaLuz"){
-        descuento = 0.4;
-     } else if (lamparitas==5){
-        descuento = 0.3;
-     }
+     } 
 
-     
-     if (lamparitas==4){
-         if (marcaDeLampara=="ArgentinaLuz" || marcaDeLampara=="FelipeLamparas") {
-             descuento = 0.25;
-         } else {
-             descuento = 0.2;
-         }
+     //este switch revisa un numero particular de lamparas y su marca para asignar descuento
+     switch (lamparitas){
+        case 5:
+           if (marcaDeLampara == "ArgentinaLuz"){
+              descuento =0.4;
+           } else {
+              descuento =0.3;
+           } break;
+         case 4:
+            if (marcaDeLampara=="ArgentinaLuz" || marcaDeLampara=="FelipeLamparas") {
+               descuento = 0.25;
+           } else {
+               descuento = 0.2;
+           } break;
+         case 3:
+            if (marcaDeLampara == "ArgentinaLuz"){
+               descuento = 0.15;
+            } else if (marcaDeLampara == "FelipeLamparas"){
+               descuento = 0.1;
+            } else {
+               descuento = 0.05;
+            }
 
      }
-     
-     if (lamparitas ==3 && marcaDeLampara == "ArgentinaLuz"){
-         descuento = 0.15;
-     } else if (lamparitas ==3 && marcaDeLampara == "FelipeLamparas"){
-        descuento = 0.1;
-     } else if (lamparitas ==3 ){
-        descuento = 0.05;
-     }
-     
-     
-        
-     
      
      //calcula el total y aplica descuentos
      total = (lamparitas * 35);
