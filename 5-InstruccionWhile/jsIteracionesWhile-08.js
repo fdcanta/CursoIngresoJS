@@ -11,7 +11,25 @@ function mostrar()
 	sumaPositivos=0;
 	multiplicacionNegativos=1;
 	respuesta='si';
+	numeroIngresado = 0;
 
+	while (respuesta=='si'){
+		numeroIngresado = prompt("Ingrese un numero.")
+		numeroIngresado = parseInt(numeroIngresado);
+		while (isNaN(numeroIngresado)){
+			numeroIngresado = prompt("Invalido, ingrese solo un numero.")
+			numeroIngresado = parseInt(numeroIngresado);
+		}
+		if (numeroIngresado<0){
+			multiplicacionNegativos = multiplicacionNegativos*numeroIngresado;
+		} else if (numeroIngresado>=0){
+			sumaPositivos = sumaPositivos+numeroIngresado;
+		}
+		respuesta = '';
+		while(respuesta != 'si' && respuesta!='no'){
+			respuesta = prompt("Desea continuar? si/no")
+		}
+	}
 
 	txtIdSuma.value=sumaPositivos;
 	txtIdProducto.value=multiplicacionNegativos;
