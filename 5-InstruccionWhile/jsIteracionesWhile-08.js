@@ -22,7 +22,7 @@ function mostrar()
 		}
 		if (numeroIngresado<0){
 			multiplicacionNegativos = multiplicacionNegativos*numeroIngresado;
-		} else if (numeroIngresado>=0){
+		} else if (numeroIngresado>0){
 			sumaPositivos = sumaPositivos+numeroIngresado;
 		}
 		respuesta = '';
