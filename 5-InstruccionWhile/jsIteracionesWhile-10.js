@@ -53,7 +53,9 @@ function mostrar()
 		}
 	}//fin del while
 
+	console.log("La cantidad de numeros negaticos es "+numNegativos);
 	console.log("la suma de negativos es :"+sumaNegativos);
+	console.log("La cantidad de positivos es "+numNegativos)
 	console.log("la suma de positivos es :"+sumaPositivos);
 	console.log("la cantidad de 0 es :"+numCeros);
 	console.log("la diferencia entre positivos y negativos es "+(sumaPositivos+sumaNegativos));

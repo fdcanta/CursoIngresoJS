@@ -9,7 +9,7 @@ F.	Nacionalidad, “A” para argentinos, “E” para extranjeros, “N” para
  */
 function ComenzarIngreso () 
 {
- 	//definicion de variables
+ 	//Definicion de variables
  	var edadIngresada;
  	var sexoIngresado;
 	var estadoCivilIngresado;
@@ -26,14 +26,28 @@ function ComenzarIngreso ()
 
 	//Se ingresa el sexo y se corrobora que sea F o M
 	sexoIngresado = prompt("Ingrese su sexo. F/M");
+	sexoIngresado = sexoIngresado.toUpperCase();
 	while (sexoIngresado != 'F' && sexoIngresado != 'M'){
 		sexoIngresado = prompt("Invalido, F para femenino o M para masculino.")
 	}
 
 	//Se ingresa el estado civil y se corrobora que sea casado/soltero/viudo/divorciado
-	estadoCivilIngresado = prompt("Ingrese su estado civil.");
-	while (estadoCivilIngresado != 'soltero' && estadoCivilIngresado != 'casado' && estadoCivilIngresado != 'divorciado' && estadoCivilIngresado != 'viudo'){
-		estadoCivilIngresado = prompt("Invalido, ingrese estado civil casado/divorciado/soltero/viudo.")
+	estadoCivilIngresado = prompt("Ingrese su estado civil como un numero. 1- Casado, 2-Soltero, 3-Viudo, 4-Divorciado");
+	while (isNaN(estadoCivilIngresado) || estadoCivilIngresado<1 || estadoCivilIngresado>4){
+		estadoCivilIngresado = prompt("Invalido, ingrese estado civil como un numero: 1-Casado, 2-Soltero, 3-viudo, 4-Divorciado.")
+	}
+	switch(estadoCivilIngresado){
+		case 1:
+			txtIdEstadoCivil.value= 'Casado';
+			break;
+		case 2:
+			txtIdEstadoCivil.value = 'Soltero';
+			break;
+		case 3: 
+			txtIdEstadoCivil.value = 'Viudo';
+			break;
+		case 4:
+			txtIdEstadoCivil.value = 'Divorciado'
 	}
 
 	//Se ingresa el sueldo y se corrobora que no sea menor a 8000 y que sea un numero
@@ -52,6 +66,7 @@ function ComenzarIngreso ()
 
 	//Se ingresa una nacionalidad y se corrobora que sea A para argentinos, E para extranjeros y N para nacionalizados
 	nacionalidad = prompt("Ingrese nacionalidad. 'A' para argentinos, 'E' para extranjeros, 'N' para nacionalizados.")
+	nacionalidad = nacionalidad.toUpperCase();
 	while (nacionalidad != 'A' && nacionalidad != 'E' && nacionalidad != 'N' ){
 		nacionalidad = prompt("Invalido, ingrese solo una letra, 'A' para argentinos, 'E' para extranjeros, 'N' para nacionalizados. .")
 	}
@@ -59,7 +74,6 @@ function ComenzarIngreso ()
 	//Se llenan los valores de la pagina
 	txtIdEdad.value = edadIngresada;
 	txtIdSexo.value = sexoIngresado;
-	txtIdEstadoCivil.value= estadoCivilIngresado;
 	txtIdSueldo.value = sueldo;
 	txtIdLegajo.value = legajo;
 	txtIdNacionalidad.value = nacionalidad;
