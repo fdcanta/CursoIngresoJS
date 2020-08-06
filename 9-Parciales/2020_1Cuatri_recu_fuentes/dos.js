@@ -1,4 +1,9 @@
 function mostrar()
 {
-  alert("dos");
+  var bolsaArena;
+  var bolsaCemento;
+  var bolsaCal;
+  var compra;
+
+  
 }
