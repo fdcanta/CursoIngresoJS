@@ -1,90 +1,87 @@
 
 function mostrar()
 {
-	var fabricante;
-	var unidadesBarbijo;
-	var unidadesAlcohol;
-	var unidadesJabon;
-	var marca;
-	var compras;
-	var producto;
-	var precio;
-	var totalBarbijos;
-	var totalJabon;
-	var totalAlcohol;
-	var bandera;
-	var jabCaroUnidades;
-	var jabCaroFabricante;
-	var mayorProducto;
-	var mayorNum;
-	totalBarbijos=0;
-	unidadesBarbijo=0;
-	unidadesAlcohol=0;
-	unidadesJabon=0;
-	compras = 0;
+var compras;
+var barbijos;
+var alcohol;
+var jabon;
+var precio;
+var unidades;
+var marca;
+var fabricante;
+var pedido;
+var bandera;
+var alcoholCompra;
+var jabonCompra;
+var barbijosCompra;
+var promedio;
+promedio=0;
+alcoholCompra=0;
+jabonCompra=0;
+barbijosCompra=0;
+alcoholBaratoPrecio;
+alcoholBaratoFabricante;
+bandera=0;
+compras=0;
 
-	prompt("que esta pasando");
-	
-	while(compras<5){
-		precio = 0;
-		producto = prompt("Elija un tipo de producto: Barbijo, Jabon, Alcohol.");
-		producto.toUpperCase();
-		while (producto != "BARBIJO" && producto!= "JABON" && producto!= "ALCOHOL"){
-			producto = prompt("Incorrecto, ingrese un tipo de producto valido: Barbijo, Jabon, Alcohol");
-			producto.toUpperCase();
-		}
-		marca=prompt("ingrese marca.");
-		fabricante = prompt("ingrese el fabricante.")
-		precio= prompt("Ingrese precio, entre 100 y 300.")
-		while (isNaN(precio) || precio<100 || precio>300){
-			precio=prompt("Precio invalido, igrese nuevo precio, entre 100 y 300.")
-		}
-		switch (producto){
-			case 'BARBIJO':
-				unidadesBarbijo=prompt("Ingrese el numero de unidades, maximo 1000");
-				while(isNaN(unidadesBarbijo)||unidadesBarbijo<1||unidadesBarbijo>1000){
-					unidadesBarbijo = prompt("Incorrecto, ingrese un numero de unidades entre 1 y 1000")
-				}
-				totalBarbijos = totalBarbijos+unidadesBarbijo;
-				break;
-			case 'JABON':
-				unidadesJabon=prompt("Ingrese el numero de unidades, maximo 1000");
-				while(isNaN(unidadesJabon)||unidadesJabon<1||unidadesJabon>1000){
-					unidadesJabon = prompt("Incorrecto, ingrese un numero de unidades entre 1 y 1000")
-				}
-				if (bandera=0){
-					precioMax=precio;
-					bandera=1;
-					jabCaroFabricante=fabricante;
-					jabCaroUnidades=unidadesJabon;
-				} else if (bandera!=0){
-					if (precio>precioMax){
-						precioMax=precio;
-						jabCaroUnidades=unidadesJabon;
-						jabCaroFabricante=fabricante;
-					}
-				}
-				totalJabon = totalJabon+unidadesJabon;
-			case 'ALCOHOL':
-				unidadesAlcohol=prompt("Ingrese el numero de unidades, maximo 1000");
-				while(isNaN(unidadesAlcohol)||unidadesAlcohol<1||unidadesAlcohol>1000){
-					unidadesJabon = prompt("Incorrecto, ingrese un numero de unidades entre 1 y 1000")
-				}
-				totalAlcohol = totalAlcohol+unidadesAlcohol;
-		}
-		compras++;
-		if (totalJabon>totalBarbijos||totalJabon>totalAlcohol){
-			mayorProducto="Jabon";
-			mayorNum=totalJabon;
-		} else if(totalBarbijos>totalAlcohol){
-			mayorProducto="Barbijos";
-			mayorNum = totalBarbijos;
-		}else{
-			mayorProducto = "Alcohol"
-			mayorNum = totalAlcohol;
-		}
-	} 
+while (compras<5){
+	pedido=prompt("Ingrese el tipo de producto: a-Alcohol, b-Barbijos, c-jabon")
+	while (pedido!='a'&&pedido!='b'&&pedido!='c'){
+		pedido=prompt("Incorrecto, ingrese un tipo de compra valido: a-Alcohol, b-Barbijos, c-jabon ")
+	}
+	precio =prompt("Ingrese el precio. Entre 100 y 300")
+	precio=parseInt(precio)
+	while (isNaN(precio)||precio<100||precio>300){
+		precio=prompt("Precio invalido, ingrese un precio entre 100 y 300")
+		precio=parseInt(precio)
+	}
+	unidades=prompt("Ingrese el numero de unidades, tope 1000")
+	while (isNaN(unidades)||unidades<1||unidades>1000){
+		unidades=prompt("numero incorrecto, elija el numero de unidades, tope 1000")
+	}
+	marca=prompt("Ingrese marca.")
+	fabricante=prompt("ingrese fabricante")
+	if (pedido='a'&&bandera==0){
+		alcoholBaratoPrecio=precio;
+		alcoholBaratoFabricante=fabricante;
+		bandera++;
+	} else if(pedido='a'&&precio<alcoholBaratoPrecio){
+		alcoholBaratoPrecio=precio;
+		alcoholBaratoFabricante=fabricante;
+	}
+	if (pedido='c'){
 
-	console.log("El total de barbijos es "+totalBarbijos);
-	console.log("El proucto mas comprado fue "+mayorProducto+", con un promedio de compra de "+mayorNum/5)
+	}
+	switch(pedido){
+		case 'a':
+			alcohol+=unidades;
+			alcoholCompra++;
+			break;
+		case 'b':
+			barbijos+=unidades;
+			barbijosCompra++;
+			break;
+		case 'c':
+			jabon+=unidades;
+			jabonCompra++;
+			break;
+	}
+
+
+compras++;
+}
+
+if (alcohol>barbijos&&alcohol>jabon){
+promedio=alcohol/alcoholCompra;
+} else if (barbijos>jabon){
+promedio=barbijos/barbijosCompra;
+} else{
+promedio=jabon/jabonCompra;
+}
+console.log("El jabon mas barato es el de "+alcoholBaratoFabricante+" y su precio es "+alcoholBaratoPrecio)
+console.log("Del tipo mas comprado de productos, el promedio por compra es "+promedio)
+console.log("La cantidad de jabones compradas es "+jabon)
+
+
+
 }
